@@ -5,7 +5,7 @@ import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 import reactor.core.publisher.Flux;
 import ru.javaops.cloudjava.ordersservice.storage.model.MenuOrder;
 
-public interface MenuOrderRepository extends ReactiveCrudRepository<MenuOrder, Integer> {
+public interface MenuOrderRepository extends ReactiveCrudRepository<MenuOrder, Long> {
 
     public Flux<MenuOrder> getOrders(String username, Pageable pageable);
 }
