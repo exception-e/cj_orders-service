@@ -10,7 +10,6 @@ import ru.javaops.cloudjava.ordersservice.dto.OrderResponse;
 import ru.javaops.cloudjava.ordersservice.dto.SortBy;
 import ru.javaops.cloudjava.ordersservice.storage.model.MenuLineItem;
 import ru.javaops.cloudjava.ordersservice.storage.model.OrderStatus;
-import ru.javaops.cloudjava.ordersservice.testdata.TestConstants;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -48,7 +47,7 @@ class MenuOrderServiceImplTest extends BaseIntegrationTest {
         StepVerifier.create(response)
                 .expectNextMatches(orderResponse -> {
                     assertThat(orderResponse.getAddress()).isEqualTo(createOrderRequest.getAddress());
-                    assertThat(orderResponse.getTotalPrice()).isEqualTo(TestConstants.SUCCESS_TOTAL_PRICE);
+                    assertThat(orderResponse.getTotalPrice()).isEqualTo(SUCCESS_TOTAL_PRICE);
                     assertThat(orderResponse.getStatus()).isEqualTo(OrderStatus.NEW);
                     assertThat(orderResponse.getCreatedAt()).isAfter(now);
                     var menuItems = new ArrayList<>(orderResponse.getMenuLineItems());
